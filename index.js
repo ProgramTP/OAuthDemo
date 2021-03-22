@@ -19,21 +19,8 @@ app.get("/", (req, res) => {
     res.send("hi");
 })
 
-//Google OAuth
-//Small bug with Google's end. Google will not accept the redirect, but they accept it if you manually paste the request into your browser, which is why its console logged.
 app.get("/signin-google", (req, res) => {
-    res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?
-    scope=${google_scope}&
-    access_type=offline&
-    response_type=code&
-    redirect_uri=${google_redirect_uri}&
-    client_id=${google_clientid}`)
-    console.log(`https://accounts.google.com/o/oauth2/v2/auth?
-    scope=${google_scope}&
-    access_type=offline&
-    response_type=code&
-    redirect_uri=${google_redirect_uri}&
-    client_id=${google_clientid}`)
+    res.redirect(`https://accounts.google.com/o/oauth2/v2/auth?scope=${google_scope}&access_type=offline&response_type=code&redirect_uri=${google_redirect_uri}&client_id=${google_clientid}`)
 })
 
 
